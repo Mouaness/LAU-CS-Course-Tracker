@@ -12,4 +12,16 @@ driver = webdriver.Chrome()
 
 # Navigate to the LAU portal login page and wait for it to load
 driver.get("https://banweb.lau.edu.lb/")
-time.sleep(10)
+time.sleep(1)
+
+# Enter the username and password in the input fields and submit the form
+username_field = driver.find_element(By.NAME, "username")
+username_field.send_keys(username)
+password_field = driver.find_element(By.NAME, "password")
+password_field.send_keys(password)
+password_field.send_keys(Keys.RETURN)
+
+# Wait for the page to load
+time.sleep(1)
+driver.save_screenshot('screenshot.png')
+
