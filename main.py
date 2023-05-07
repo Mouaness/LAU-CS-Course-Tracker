@@ -25,3 +25,14 @@ password_field.send_keys(Keys.RETURN)
 time.sleep(1)
 driver.save_screenshot('screenshot.png')
 
+#go to the student services and financial aid page
+driver.find_element(By.XPATH, "//img[@alt='Student Services and Financial Aid']").click()
+time.sleep(1)
+driver.save_screenshot('screenshot1.png')
+
+#go to the registration page
+driver.find_element(By.XPATH, "//a[contains(@href, 'bmenu.P_RegMnu')]").click()
+time.sleep(1)
+driver.save_screenshot('screenshot2.png')
+
+driver.close()
