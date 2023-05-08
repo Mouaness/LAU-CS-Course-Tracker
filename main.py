@@ -1,6 +1,7 @@
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import Select
 import time
 
 #get the username and password from the user
@@ -35,4 +36,22 @@ driver.find_element(By.XPATH, "//a[contains(@href, 'bmenu.P_RegMnu')]").click()
 time.sleep(1)
 driver.save_screenshot('screenshot2.png')
 
+#go to the look up classes to add page
+driver.find_element(By.XPATH, "//a[text()='Look-up Classes to Add']").click()
+time.sleep(1)
+driver.save_screenshot('screenshot3.png')
+
+#select the term from the drop down list
+dropdown = driver.find_element(By.ID,'term_input_id')
+select = Select(dropdown)
+select.select_by_visible_text('Fall 2023 (View only)')
+time.sleep(1)
+driver.save_screenshot('screenshot4.png')
+
+#submit the form
+driver.find_element(By.CSS_SELECTOR, "input[type='submit'][value='Submit']").click()
+time.sleep(1)
+driver.save_screenshot('screenshot5.png')
+
 driver.close()
+
