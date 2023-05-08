@@ -9,10 +9,19 @@ Chrome webdriver for Selenium (version 89 or higher)
 
 ## Usage
 1- Clone this repository to your local machine.
+
 2- Install the required libraries as specified above.
+
 3- Download the appropriate Chrome webdriver for your operating system and browser version and place it in the same directory as the script.
+
 4- Open a terminal window in the directory containing the script and run the following command:
+
     python lau_scraper.py
+    
 5- Follow the prompts to enter your LAU username and password.
-6- The script will launch a Chrome browser and navigate to the LAU portal. The scraping process may take a few minutes, depending on the number of courses offered in the selected department. The progress will be displayed in the terminal window.
+
+6- The script will launch a Chrome browser and navigate to the LAU portal. The scraping process may take a few minutes, depending on the number of courses offered in the
+
+selected department. The progress will be displayed in the terminal window.
+
 7- Once the scraping is complete, the data will be saved to a CSV file named course_offerings.csv in the same directory as the script
