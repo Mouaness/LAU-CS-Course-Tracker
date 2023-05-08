@@ -83,4 +83,30 @@ driver.find_element(By.CSS_SELECTOR, "input[type='submit'][value='Section Search
 time.sleep(1)
 driver.save_screenshot('screenshot9.png')
 
+# Extract the data from the table and write it to a CSV file
+with open('course_offerings.csv', 'w', newline='', encoding='utf-8') as file:
+    writer = csv.writer(file)
+
+    # Write the header row
+    header = ['Select', 'CRN', 'Course', 'Course number', 'section', 'campus', 'credits', 'Title', 'Days', 'Time', 'Cap', 'Act', 'Rem', 'WL Cap', 'WL Act', 'WL Rem', 'XL Cap', 'XL Act', 'XL Rem', 'Instructor', 'Date', 'Location', 'Attribute']
+    writer.writerow(header)
+
+    # Find all the rows in the table
+    table = driver.find_element(By.XPATH, "//table[@class='datadisplaytable']")
+    rows = table.find_elements(By.XPATH, "//tr")[1:]  # Skip the first row as it is the header
+
+    # Loop through each row and extract the data
+    count = 7
+    for row in rows:
+        if count == 0:
+            cols = row.find_elements(By.XPATH, "./td")
+            row_data = []
+            for col in cols:
+                row_data.append(col.text.strip()+"\t")
+            if len(row_data) > 0:
+                writer.writerow(row_data)
+        else:
+            count-=1
+
+
 driver.close()
