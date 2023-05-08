@@ -16,7 +16,7 @@ Chrome webdriver for Selenium (version 89 or higher)
 
 4- Open a terminal window in the directory containing the script and run the following command:
 
-    python lau_scraper.py
+    python main.py
     
 5- Follow the prompts to enter your LAU username and password.
 
