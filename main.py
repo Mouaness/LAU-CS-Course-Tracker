@@ -3,6 +3,7 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import Select
 import time
+import csv
 
 #get the username and password from the user
 username = input("Enter your LAU username: ")
@@ -36,7 +37,7 @@ driver.find_element(By.XPATH, "//a[contains(@href, 'bmenu.P_RegMnu')]").click()
 time.sleep(1)
 driver.save_screenshot('screenshot2.png')
 
-#go to the look up classes to add page
+#go to the look up classes page
 driver.find_element(By.XPATH, "//a[text()='Look-up Classes to Add']").click()
 time.sleep(1)
 driver.save_screenshot('screenshot3.png')
@@ -53,5 +54,33 @@ driver.find_element(By.CSS_SELECTOR, "input[type='submit'][value='Submit']").cli
 time.sleep(1)
 driver.save_screenshot('screenshot5.png')
 
-driver.close()
+#go to the advanced search page
+driver.find_element(By.CSS_SELECTOR, "input[type='submit'][value='Advanced Search']").click()
+time.sleep(1)
+driver.save_screenshot('screenshot6.png')
 
+#select the course from the drop down list
+dropdown = driver.find_element(By.ID,'subj_id')
+select = Select(dropdown)
+select.select_by_visible_text('Computer Science')
+time.sleep(1)
+driver.save_screenshot('screenshot7.png')
+
+#select the campus from the drop down list
+dropdown = driver.find_element(By.ID,'camp_id')
+select = Select(dropdown)
+
+#deselect all options first
+select.deselect_all()
+
+#select the Byblos option using its value
+select.select_by_value('2')
+time.sleep(1)
+driver.save_screenshot('screenshot8.png')
+
+#section search
+driver.find_element(By.CSS_SELECTOR, "input[type='submit'][value='Section Search']").click()
+time.sleep(1)
+driver.save_screenshot('screenshot9.png')
+
+driver.close()
